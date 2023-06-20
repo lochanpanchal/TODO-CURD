@@ -1,6 +1,6 @@
 package com.geekster.TODOApp.Entity;
 
-public class TOdo {
+public class Todo {
 
     private Integer todoId; //we can use int too
     private String name;

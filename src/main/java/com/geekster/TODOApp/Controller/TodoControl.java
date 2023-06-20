@@ -1,6 +1,8 @@
-package com.geekster.TODOApp.TodoController;
+package com.geekster.TODOApp.Controller;
 
-import com.geekster.TODOApp.Entity.TOdo;
+import com.geekster.TODOApp.Entity.Todo;
+import com.geekster.TODOApp.service.TodoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -8,57 +10,38 @@ import java.util.List;
 @RestController
 public class TodoControl {
 
-    private List<TOdo> myTodos;
 
-       public TodoControl(){
-           myTodos = new ArrayList<>();
-       }
+
+    @Autowired
+    TodoService todo;
 
        @GetMapping("todos")
-    public List<TOdo> getAllTodos()
+    public List<Todo> getAllTodos()
     {
-        return myTodos;
+        return todo.getAllTodos();
     }
     @GetMapping("Todo/done")
-    public List<TOdo> getDoneTodos()
+    public List<Todo> getDoneTodos()
     {
-        List<TOdo> done = new ArrayList<>();
-        for(TOdo i : myTodos)
-        {
-            if(i.isTodoDoneStatus())
-            {
-                done.add(i);
-            }
-        }
-
-        return done;
+        return todo.getallDoneTodos();
     }
 
     @GetMapping("Todo/pending")
-    public List<TOdo> notDoneTodos()
+    public List<Todo> notDoneTodos()
     {
-        List<TOdo> done = new ArrayList<>();
-        for(TOdo i : myTodos)
-        {
-            if(!i.isTodoDoneStatus())
-            {
-                done.add(i);
-            }
-        }
-
-        return done;
+        return todo.getAllNotDoneTodos();
     }
     @PostMapping("Todo")
-public String addTodo(@RequestBody TOdo todo)
+public String addTodo(@RequestBody Todo todo)
 {
-    myTodos.add(todo);
+    this.todo.addTodos(todo);
     return"addTodos";
 }
 
 @PutMapping("todo/status/{id}/{status}")
 public String todoDone(@PathVariable Integer id , @PathVariable boolean status)
 {
-    for(TOdo i : myTodos)
+    for(Todo i : todo.getAllTodos())
     {
         if(i.getTodoId().equals(id))
         {
@@ -73,11 +56,11 @@ public String todoDone(@PathVariable Integer id , @PathVariable boolean status)
     @DeleteMapping("todo/delete")
     public String todoDelete(@RequestParam Integer id)
     {
-        for(TOdo i : myTodos)
+        for(Todo i : todo.getAllTodos())
         {
             if(i.getTodoId().equals(id))
             {
-                myTodos.remove(i);
+                todo.delTodos(i);
                 return "Todo deleted";
             }
         }
