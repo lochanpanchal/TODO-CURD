@@ -11,7 +11,7 @@ import java.util.List;
 public class BeanManufacturer {
 
     @Bean
-    public List<Todo> getTodos( ){
+    public List<Todo> getTodos(){
         return new ArrayList<>();
     }
 }

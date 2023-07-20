@@ -1,5 +1,12 @@
 package com.geekster.TODOApp.Entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Todo {
 
     private Integer todoId; //we can use int too
@@ -7,27 +14,6 @@ public class Todo {
 
     private boolean isTodoDoneStatus;
 
-    public Integer getTodoId() {
-        return todoId;
+
     }
 
-    public void setTodoId(Integer todoId) {
-        this.todoId = todoId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isTodoDoneStatus() {
-        return isTodoDoneStatus;
-    }
-
-    public void setTodoDoneStatus(boolean todoDoneStatus) {
-        isTodoDoneStatus = todoDoneStatus;
-    }
-}
