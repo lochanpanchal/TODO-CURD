@@ -26,7 +26,13 @@ ___
     * todoId
     * name
     * isTodoDoneStatus
- 
+* Controller
+    *  @GetMapping("todos")
+    *  @GetMapping("Todo/done")
+    *  @GetMapping("Todo/pending")
+    *  @PostMapping("Todo")
+    *  @PutMapping("todo/status/{id}/{status}")
+    *  @DeleteMapping("todo/delete")
   
 </p>
 
@@ -34,4 +40,4 @@ ___
   ArrayList from the collection framework
 
 ## Project Summary
-  In this application we can  Create Read Update Delete a Todo from the different api that are in this application
+  In this application we can  Create Read Update Delete a Todo or Todos from the different api that are in this application
