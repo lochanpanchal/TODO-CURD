@@ -11,15 +11,15 @@ import java.util.List;
 @Service //This is also  a component for the Business logic
 public class TodoService {
     @Autowired
-    TodoRepo myTodos;
+    TodoRepo todoRepo;
 
     public List<Todo> getAllTodos() {
-        return myTodos.getMyTodos();
+        return todoRepo.getMyTodos();
     }
 
     public List<Todo> getallDoneTodos(){
         List<Todo> done = new ArrayList<>();
-        for(Todo i : myTodos.getMyTodos())
+        for(Todo i : todoRepo.getMyTodos())
         {
             if(i.isTodoDoneStatus())
             {
@@ -32,7 +32,7 @@ public class TodoService {
 
     public List<Todo> getAllNotDoneTodos(){
         List<Todo> done = new ArrayList<>();
-        for(Todo i : myTodos.getMyTodos())
+        for(Todo i : todoRepo.getMyTodos())
         {
             if(!i.isTodoDoneStatus())
             {
@@ -43,17 +43,42 @@ public class TodoService {
         return done;
     }
 
-    public void addTodos(Todo t)
+    public String addTodos(Todo t)
     {
-        myTodos.addTodos(t);
+        todoRepo.addTodos(t);
+        return "New Todo Added";
     }
 
     public void delTodos(Todo t)
     {
-        myTodos.deleteTodos(t);
+        todoRepo.deleteTodos(t);
     }
 
 
+    public String updateTodoStatus(Integer id, boolean status) {
 
+        for(Todo i : getAllTodos())
+        {
+            if(i.getTodoId().equals(id))
+            {
+                i.setTodoDoneStatus(status);
+                return "Status updated for id: "+id;
+            }
+        }
 
+        return  "Todo Id not Found";
+    }
+
+    public String removeTodo(Integer id) {
+        for(Todo i : getAllTodos())
+        {
+            if(i.getTodoId().equals(id))
+            {
+                delTodos(i);
+                return "Todo deleted";
+            }
+        }
+
+        return  "The Todo u want to delete does not exist";
+    }
 }
