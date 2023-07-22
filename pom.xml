@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.geekster</groupId>
-	<artifactId>TO-DOApp</artifactId>
+	<artifactId>TODO CURD</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TO-DOApp</name>
 	<description>Demo project for Spring Boot</description>
