@@ -17,45 +17,12 @@
 ---
 
 <p align="left">
-## * Frameworks and Language used
+## Frameworks and Language used
 
 
     1. Springboot framework
     2. core java
     3. lombok
-
-
-*  Data flow
-
-1. Controller
-   * AddressController
-   * BookController
-* CourseController
-  * LaptopController
-* StudentController
-
-
-    2. model
-        * Address
-        * Book
-	* Course
-        * Laptop
-	* Student
- 
-    3. service
-        * AddressService
-        * BookService
-	* CourseService
-        * LaptopService
-	* StudentService
-
-
-    4. repository
-        * IAddressRepo
-        * IBookRepo
-	* ICourseRepo
-        * ILaptopRepo
-	* IStudentRepo
 
 
 ## Data Flow
