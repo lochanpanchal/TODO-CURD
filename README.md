@@ -1,5 +1,7 @@
-# <h1 align = "center"> Todo APP </h1>
-___ 
+
+# <p style="text-align: center;"> TODA CURD👋</p>
+
+
 <p align="center">
 <a href="Java url">
     <img alt="Java" src="https://img.shields.io/badge/Java->=8-darkblue.svg" />
@@ -15,11 +17,46 @@ ___
 ---
 
 <p align="left">
+## * Frameworks and Language used
 
-## Dependencies
-    SpringBoot Starter Web
-    Lombok
-   
+
+    1. Springboot framework
+    2. core java
+    3. lombok
+
+
+*  Data flow
+
+1. Controller
+   * AddressController
+   * BookController
+* CourseController
+  * LaptopController
+* StudentController
+
+
+    2. model
+        * Address
+        * Book
+	* Course
+        * Laptop
+	* Student
+ 
+    3. service
+        * AddressService
+        * BookService
+	* CourseService
+        * LaptopService
+	* StudentService
+
+
+    4. repository
+        * IAddressRepo
+        * IBookRepo
+	* ICourseRepo
+        * ILaptopRepo
+	* IStudentRepo
+
 
 ## Data Flow
 * Todo
@@ -33,11 +70,14 @@ ___
     *  @PostMapping("Todo")
     *  @PutMapping("todo/status/{id}/{status}")
     *  @DeleteMapping("todo/delete")
-  
-</p>
 
-## Data Structure
-  ArrayList from the collection framework
+  
+## Data Structure used in my project
+
+
+    ArrayList
+
 
 ## Project Summary
-  In this application we can  Create Read Update Delete a Todo or Todos from the different api that are in this application
+In Spring Boot, mapping refers to the process of associating HTTP requests to specific methods in controller classes that handle those requests. These mappings are used to define the endpoints for RESTful APIs or web applications, enabling communication between clients (e.g., browsers, mobile apps) and the server.
+
